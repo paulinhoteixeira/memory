@@ -1,10 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #000000;
   min-height: 100vh;
   width: 100%;
@@ -14,18 +14,30 @@ body{
   font-family: "Roboto", sans-serif;
 }
 
-.game-container{
+.game-container {
   min-width: 544px;
-
 }
 
-.game-header{
+.game-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.stats{
+.stats {
   color: #ffffff;
   font-size: 16px;
+}
+
+.cards-grid {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: calc(25% - 5px);
+  aspect-ratio: 1;
+  background-color: #8234e0;
 }
