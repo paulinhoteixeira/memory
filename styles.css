@@ -40,7 +40,7 @@ body {
 .card {
   width: calc(25% - 5px);
   aspect-ratio: 1;
-  background-color: #8234e0;
+  background-color: #8234e9;
   border: 2px solid #5a0caf;
   border-radius: 12px;
   background-image: url(./assets/lines.svg);
@@ -61,4 +61,27 @@ body {
 
 .revealed .card-emoji{
   display: block;
+}
+
+.button{
+  width: 100%;
+  height: 52px;
+  margin-top: 32px;
+  background-color: #8234e9;
+  color: #ffffff;
+
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+
+  border-radius: 7px;
+  border: 2px solid #5a0caf;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s;
+}
+
+.button:hover{
+  background-color: #7029d6;
 }
