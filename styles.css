@@ -44,4 +44,21 @@ body {
   border: 2px solid #5a0caf;
   border-radius: 12px;
   background-image: url(./assets/lines.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.revealed{
+  background-color: #ffffff;
+  border-color: #dadada;
+}
+
+.card-emoji{
+  font-size: 40px;
+  display: none;
+}
+
+.revealed .card-emoji{
+  display: block;
 }
