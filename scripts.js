@@ -27,5 +27,33 @@ function shuffleCards(array){
   return shuffled
 }
 
-const cards = shuffleCards(cardItems)
-console.log(cards)
+function createCard(card){
+  const cardElement = document.createElement("div")
+  cardElement.className = "card"
+
+  const emoji = document.createElement("span")
+  emoji.className = "card-emoji"
+  emoji.textContent = card.content
+
+  cardElement.appendChild(emoji)
+
+  return cardElement
+}
+
+function renderCards(){
+  const deck = document.getElementById("deck")
+  deck.innerHTML = ""
+
+
+  const cards = shuffleCards(cardItems)
+  cards.forEach(item => {
+    const cardElement = createCard(item)
+
+    deck.appendChild(cardElement)
+  
+  });
+
+}
+
+renderCards()
+
