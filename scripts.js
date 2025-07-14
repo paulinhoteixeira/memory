@@ -37,6 +37,8 @@ function createCard(card){
 
   cardElement.appendChild(emoji)
 
+  cardElement.addEventListener("click", () => handleCardClick(cardElement, card))
+
   return cardElement
 }
 
@@ -53,6 +55,18 @@ function renderCards(){
   
   });
 
+}
+
+function handleCardClick(cardElement, card){
+  cardElement.classList.add("revealed")
+
+  flippedCards.push({cardElement, card})
+
+  if(flippedCards.length === 2){
+
+  }else{
+    
+  }
 }
 
 renderCards()
