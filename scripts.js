@@ -58,16 +58,38 @@ function renderCards(){
 }
 
 function handleCardClick(cardElement, card){
+  const containRevealed = cardElement.classList.contains("revealed")
+
+  if(isCheckingPair || containRevealed){
+    return
+  }
+
   cardElement.classList.add("revealed")
 
   flippedCards.push({cardElement, card})
 
   if(flippedCards.length === 2){
-
-  }else{
+    isCheckingPair = true
+    attempts++
     
+    const[firstCard, secondCard] = flippedCards
+
+    if (firstCard.card.content === secondCard.card.content)  {
+      matchedPairs++
+    } else{
+      setTimeout(() => {
+        firstCard.cardElement.classList.remove("revealed")
+        secondCard.cardElement.classList.remove("revealed")
+        flippedCards = []
+        isCheckingPair = false
+
+      }, 2000)
+    }
+
   }
 }
+
+
 
 renderCards()
 

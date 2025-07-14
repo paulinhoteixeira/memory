@@ -54,6 +54,8 @@ body {
 .revealed{
   background-color: #ffffff;
   border-color: #dadada;
+  cursor: not-allowed;
+
 }
 
 .card-emoji{
