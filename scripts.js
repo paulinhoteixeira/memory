@@ -76,20 +76,25 @@ function handleCardClick(cardElement, card){
 
     if (firstCard.card.content === secondCard.card.content)  {
       matchedPairs++
+      
     } else{
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed")
         secondCard.cardElement.classList.remove("revealed")
-        flippedCards = []
-        isCheckingPair = false
+        
 
       }, 2000)
     }
-
+    flippedCards = []
+    isCheckingPair = false
+    updateStats()
   }
+
 }
 
-
+function updateStats(){
+  document.getElementById("stats").textContent = `${matchedPairs} acertos de ${attempts} tentativas`
+}
 
 renderCards()
 
