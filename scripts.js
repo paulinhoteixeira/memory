@@ -57,15 +57,14 @@ function renderCards() {
 
 }
 
-function handleCardClick(cardElement, card) {
-  const containRevealed = cardElement.classList.contains("revealed")
+function handleCardClick(cardElement, card) {    
+  
 
-  if (isCheckingPair || containRevealed) {
+  if (isCheckingPair || cardElement.classList.contains("revealed")) {
     return
   }
 
   cardElement.classList.add("revealed")
-
   flippedCards.push({ cardElement, card })
 
   if (flippedCards.length === 2) {
@@ -77,27 +76,34 @@ function handleCardClick(cardElement, card) {
     if (firstCard.card.content === secondCard.card.content) {
       matchedPairs++
 
+
       cardItems.forEach(item => {
         if (item.content === firstCard.card.content) {
           item.matched = true
         }
       })
 
+      flippedCards = []
+      isCheckingPair = false
+      updateStats()
+
       const toFind = cardItems.find(item => item.matched === false)
       if (!toFind) {
-        alert("Parabnéns, você encontrou todos os pares!")
+        setTimeout(() => alert("Parabéns, você encontrou todos os pares!"), 100)
       }
     } else {
       setTimeout(() => {
         firstCard.cardElement.classList.remove("revealed")
         secondCard.cardElement.classList.remove("revealed")
+        console.log("apaguei")
 
+        flippedCards = []
+        isCheckingPair = false
+        updateStats()
 
-      }, 2000)
+      }, 600)
     }
-    flippedCards = []
-    isCheckingPair = false
-    updateStats()
+    
   }
 
 }
@@ -119,9 +125,9 @@ function resetGame() {
 
 
 function initGame() {
-  
-  renderCards() 
-  
+
+  renderCards()
+
   document.getElementById("restart").addEventListener("click", resetGame)
 }
 
